@@ -1,0 +1,100 @@
+const express = require("express");
+const app = express();
+const port = 4000;
+const ejs = require("ejs");
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const mongoose = require('mongoose')
+const url = "mongodb+srv://agbajeabiodunkay:CbXbrl4HBZcJL06s@cluster0.acphhz1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+// FOR EJS
+app.set("view engine", "ejs");
+
+app.get("/dashboard", (req, res) => {
+  res.send("Hello, Welcome");
+});
+
+// FOR HTML FILE
+app.get("/html", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
+let student = [
+  {
+    id: 1,
+    studentName: "paul",
+    studentCourse: "Web Development",
+    StudentLevel: "ND1",
+  },
+  {
+    id: 2,
+    studentName: "Ade",
+    studentCourse: "Moobile Developpment",
+    StudentLevel: "ND2",
+  },
+  { id: 3, studentName: "Bola", studentCourse: "Flutter", StudentLevel: "ND3" },
+  { id: 4, studentName: "Tayo", studentCourse: "c++", StudentLevel: "ND4" },
+  { id: 5, studentName: "Taiwo", studentCourse: "Pascal", StudentLevel: "ND5" },
+  { id: 6, studentName: "Tope", studentCourse: "Java", StudentLevel: "ND6" },
+  {
+    id: 7,
+    studentName: "Tolu",
+    studentCourse: "Javascript",
+    StudentLevel: "ND7",
+  },
+  { id: 8, studentName: "Chima", studentCourse: "", StudentLevel: "ND1" },
+  { id: 9, studentName: "John", studentCourse: "WEB", StudentLevel: "ND1" },
+  { id: 10, studentName: "Abiodun", studentCourse: "WEB", StudentLevel: "ND7" },
+];
+
+// let info;
+
+// try {
+//   fetch("https://jsonplaceholder.typicode.com/users")
+//     .then((res) => res.json())
+//     .then((resp) => {
+//       info = resp;
+//       console.log(info)
+//     })
+//     .catch((err) => console.log(err));
+// } catch (error) {
+//   console.log(error);
+// }
+
+const score = 70;
+
+const Users = ["Ade", "Yinka", "Tolu"];
+
+const studentDetails = {
+  name: "lanre",
+  age: 12,
+  course: "Computer",
+};
+
+// FOR EJS
+app.get("/ejs", (req, res) => {
+  // res.render("index");
+  res.render("index", {
+    date: new Date().toLocaleDateString(),
+    studentDetails,
+    Users,
+    // info,
+    score,
+  });
+});
+
+app.get("/students", (req, res) => {
+  res.send(student);
+});
+
+app.listen(port, () => {
+  console.log(`server running on port ${port}`);
+});
+
+
+mongoose.connect(uri, (err) => {
+  if (err) {
+    
+  } else {
+    
+  }
+})
