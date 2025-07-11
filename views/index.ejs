@@ -7,38 +7,11 @@
   </head>
   <body>
     <h2>Welcome to my EJS file</h2>
-    <h1><%= date %> <%= studentDetails.name %></h1>
-
-    <% if (studentDetails.age == 12 && studentDetails.name == "lanre") { %>
-    <h1>Hey, Welcome</h1>
-
-    <% } else { %>
-
-    <h1>You are wrong</h1>
-
-    <% } %>
-
-    <!-- <h1>
-      <% for( let index = 0; index <= 10; index++ ) { %>
-      <h1><%= index %></h1>
-      <% } %>
-    </h1> -->
-
-    <!-- <% for (let index = 0; index < info.length; index++) { %>
-    <h1><%= info[index].name %></h1> -->
-
-    <% } %> <% if (score >= 70 && score <= 100) { %>
-    <h1>Your score is <%= score %> and You passed</h1>
-    <% } else if (score >= 60 && score <= 69) { %>
-    <h1>Your score is <%= score %> and You passed</h1>
-    <% } else if (score >= 50 && score <= 59) { %>
-    <h1>Your score is <%= score %> and You passed</h1>
-    <% } else if (score >= 40 && score <= 49) { %>
-    <h1>Your score is <%= score %> and You passed</h1>
-    <% } else if (score >= 0 && score <= 39) { %>
-    <h1>Your score is <%= score %> and You Failed</h1>
-    <% } else { %>
-    <h1>Score can't be lesser than 0</h1>
-    <% } %>
+    <form action="/signup" method="POST">
+      <input type="text" name="username" id="username" />
+      <input type="text" name="email" id="email" />
+      <input type="text" name="password" id="password" />
+      <button type="submit">Login</button>
+    </form>
   </body>
 </html>
